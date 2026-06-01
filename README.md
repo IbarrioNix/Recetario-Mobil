@@ -151,7 +151,7 @@ No se requiere API key para el uso básico (tier gratuito).
 
 ## 👤 Autor
 
-Desarrollado por **IbarrioNix** como proyecto de la materia de Dispositivos Móviles.
+Desarrollado por **Mario Alberto Ibarra Perez (IbarrioNix)** como proyecto de la materia de Dispositivos Móviles.
 
 ---
 
