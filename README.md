@@ -1,2 +1,7 @@
-# Recetario-Mobil
-Proyecto hecho en FlutterFlow para la materia de Dispositivos Mobiles
+# Proyecto
+
+A new Flutter project.
+
+## Getting Started
+
+FlutterFlow projects are built to run on the Flutter _stable_ release.
