@@ -49,12 +49,12 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
                   r'''$.meals''',
                 ) ??
                 [])
-            .take(6 - nextPageMarker.numItems)
+            .take(5 - nextPageMarker.numItems)
             .toList() as List;
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController2?.appendPage(
           pageItems,
-          (pageItems.length > 0) && newNumItems < 6
+          (pageItems.length > 0) && newNumItems < 5
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,

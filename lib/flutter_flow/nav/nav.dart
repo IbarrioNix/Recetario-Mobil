@@ -101,19 +101,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
+          name: FavoritosWidget.routeName,
+          path: FavoritosWidget.routePath,
+          builder: (context, params) => FavoritosWidget(),
+        ),
+        FFRoute(
+          name: ModificarDatosWidget.routeName,
+          path: ModificarDatosWidget.routePath,
+          builder: (context, params) => ModificarDatosWidget(),
+        ),
+        FFRoute(
           name: RecetaWidget.routeName,
           path: RecetaWidget.routePath,
           builder: (context, params) => RecetaWidget(
-            mealId: params.getParam(
-              'mealId',
-              ParamType.String,
-            ),
-            nombre: params.getParam(
-              'nombre',
-              ParamType.String,
-            ),
-            imagen: params.getParam(
-              'imagen',
+            id: params.getParam(
+              'id',
               ParamType.String,
             ),
             ig1: params.getParam(
@@ -136,40 +138,48 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'ig5',
               ParamType.String,
             ),
-            instrucciones: params.getParam(
-              'instrucciones',
+            med1: params.getParam(
+              'med1',
+              ParamType.String,
+            ),
+            med2: params.getParam(
+              'med2',
+              ParamType.String,
+            ),
+            med3: params.getParam(
+              'med3',
+              ParamType.String,
+            ),
+            med4: params.getParam(
+              'med4',
+              ParamType.String,
+            ),
+            med5: params.getParam(
+              'med5',
+              ParamType.String,
+            ),
+            ins: params.getParam(
+              'ins',
+              ParamType.String,
+            ),
+            img: params.getParam(
+              'img',
               ParamType.String,
             ),
             video: params.getParam(
               'video',
               ParamType.String,
             ),
-            medida: params.getParam(
-              'medida',
+            cate: params.getParam(
+              'cate',
               ParamType.String,
             ),
-            medida2: params.getParam(
-              'medida2',
+            org: params.getParam(
+              'org',
               ParamType.String,
             ),
-            medida3: params.getParam(
-              'medida3',
-              ParamType.String,
-            ),
-            medida4: params.getParam(
-              'medida4',
-              ParamType.String,
-            ),
-            medida5: params.getParam(
-              'medida5',
-              ParamType.String,
-            ),
-            categoria: params.getParam(
-              'categoria',
-              ParamType.String,
-            ),
-            origen: params.getParam(
-              'origen',
+            nom: params.getParam(
+              'nom',
               ParamType.String,
             ),
           ),
@@ -178,16 +188,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: PerfilWidget.routeName,
           path: PerfilWidget.routePath,
           builder: (context, params) => PerfilWidget(),
-        ),
-        FFRoute(
-          name: FavoritosWidget.routeName,
-          path: FavoritosWidget.routePath,
-          builder: (context, params) => FavoritosWidget(),
-        ),
-        FFRoute(
-          name: ModificarDatosWidget.routeName,
-          path: ModificarDatosWidget.routePath,
-          builder: (context, params) => ModificarDatosWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

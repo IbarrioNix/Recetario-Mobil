@@ -194,8 +194,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     fadeOutDuration: Duration(milliseconds: 0),
                                     imageUrl:
                                         'https://dimg.dreamflow.cloud/v1/image/homemade%20pesto%20pasta%20with%20fork',
+                                    width: 400.0,
                                     height: 160.0,
-                                    fit: BoxFit.cover,
+                                    fit: BoxFit.fill,
                                     alignment: Alignment(0.0, 0.0),
                                   ),
                                   Container(
@@ -298,6 +299,38 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                       ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            24.0, 0.0, 24.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Recomendado para ti',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .fontStyle,
+                                    ),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                    lineHeight: 1.4,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
                       ListView(
                         padding: EdgeInsets.zero,
                         primary: false,
@@ -352,45 +385,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 0.0, 24.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'Recomendado para ti',
-                                            style: FlutterFlowTheme.of(context)
-                                                .titleMedium
-                                                .override(
-                                                  font: GoogleFonts.interTight(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleMedium
-                                                          .fontStyle,
-                                                  lineHeight: 1.4,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          24.0, 0.0, 24.0, 0.0),
                                       child: ListView(
                                         padding: EdgeInsets.zero,
                                         primary: false,
@@ -412,24 +406,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                   context.pushNamed(
                                                     RecetaWidget.routeName,
                                                     queryParameters: {
-                                                      'mealId': serializeParam(
+                                                      'id': serializeParam(
                                                         getJsonField(
                                                           hijosItem,
                                                           r'''$.idMeal''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'nombre': serializeParam(
-                                                        getJsonField(
-                                                          hijosItem,
-                                                          r'''$.strMeal''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'imagen': serializeParam(
-                                                        getJsonField(
-                                                          hijosItem,
-                                                          r'''$.strMealThumb''',
                                                         ).toString(),
                                                         ParamType.String,
                                                       ),
@@ -468,11 +448,52 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         ).toString(),
                                                         ParamType.String,
                                                       ),
-                                                      'instrucciones':
-                                                          serializeParam(
+                                                      'med1': serializeParam(
+                                                        getJsonField(
+                                                          hijosItem,
+                                                          r'''$.strMeasure1''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'med2': serializeParam(
+                                                        getJsonField(
+                                                          hijosItem,
+                                                          r'''$.strMeasure2''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'med3': serializeParam(
+                                                        getJsonField(
+                                                          hijosItem,
+                                                          r'''$.strMeasure3''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'med4': serializeParam(
+                                                        getJsonField(
+                                                          hijosItem,
+                                                          r'''$.strMeasure4''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'med5': serializeParam(
+                                                        getJsonField(
+                                                          hijosItem,
+                                                          r'''$.strMeasure5''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'ins': serializeParam(
                                                         getJsonField(
                                                           hijosItem,
                                                           r'''$.strInstructions''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'img': serializeParam(
+                                                        getJsonField(
+                                                          hijosItem,
+                                                          r'''$.strMealThumb''',
                                                         ).toString(),
                                                         ParamType.String,
                                                       ),
@@ -483,53 +504,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                                         ).toString(),
                                                         ParamType.String,
                                                       ),
-                                                      'medida': serializeParam(
-                                                        getJsonField(
-                                                          hijosItem,
-                                                          r'''$.strMeasure1''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'medida2': serializeParam(
-                                                        getJsonField(
-                                                          hijosItem,
-                                                          r'''$.strMeasure2''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'medida3': serializeParam(
-                                                        getJsonField(
-                                                          hijosItem,
-                                                          r'''$.strMeasure3''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'medida4': serializeParam(
-                                                        getJsonField(
-                                                          hijosItem,
-                                                          r'''$.strMeasure4''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'medida5': serializeParam(
-                                                        getJsonField(
-                                                          hijosItem,
-                                                          r'''$.strMeasure5''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'categoria':
-                                                          serializeParam(
+                                                      'cate': serializeParam(
                                                         getJsonField(
                                                           hijosItem,
                                                           r'''$.strCategory''',
                                                         ).toString(),
                                                         ParamType.String,
                                                       ),
-                                                      'origen': serializeParam(
+                                                      'org': serializeParam(
                                                         getJsonField(
                                                           hijosItem,
                                                           r'''$.strArea''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'nom': serializeParam(
+                                                        getJsonField(
+                                                          hijosItem,
+                                                          r'''$.strMeal''',
                                                         ).toString(),
                                                         ParamType.String,
                                                       ),

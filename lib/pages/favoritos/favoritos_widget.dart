@@ -1,4 +1,5 @@
-import '/backend/api_requests/api_calls.dart';
+import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
 import '/components/recipe_card3_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -119,8 +120,13 @@ class _FavoritosWidgetState extends State<FavoritosWidget> {
                 ),
               ),
               Container(
-                child: FutureBuilder<ApiCallResponse>(
-                  future: GetFavoritosCall.call(),
+                child: FutureBuilder<List<FavoritosRow>>(
+                  future: FavoritosTable().queryRows(
+                    queryFn: (q) => q.eqOrNull(
+                      'user_id',
+                      currentUserUid,
+                    ),
+                  ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -136,80 +142,60 @@ class _FavoritosWidgetState extends State<FavoritosWidget> {
                         ),
                       );
                     }
-                    final columnGetFavoritosResponse = snapshot.data!;
+                    List<FavoritosRow> columnFavoritosRowList = snapshot.data!;
 
-                    return Builder(
-                      builder: (context) {
-                        final hijos = getJsonField(
-                          columnGetFavoritosResponse.jsonBody,
-                          r'''$''',
-                        ).toList().take(6).toList();
-
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          primary: false,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: hijos.length,
-                          itemBuilder: (context, hijosIndex) {
-                            final hijosItem = hijos[hijosIndex];
-                            return Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              child: ListView(
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      primary: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: columnFavoritosRowList.length,
+                      itemBuilder: (context, columnIndex) {
+                        final columnFavoritosRow =
+                            columnFavoritosRowList[columnIndex];
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          child: ListView(
+                            padding: EdgeInsets.zero,
+                            primary: false,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            children: [
+                              ListView(
                                 padding: EdgeInsets.zero,
-                                primary: false,
                                 shrinkWrap: true,
                                 scrollDirection: Axis.vertical,
                                 children: [
-                                  ListView(
-                                    padding: EdgeInsets.zero,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    children: [
-                                      RecipeCard3Widget(
-                                        key: Key(
-                                            'Key8v5_${hijosIndex}_of_${hijos.length}'),
-                                        calories: random_data
-                                            .randomInteger(50, 500)
-                                            .toString(),
-                                        difficulty: 'Media',
-                                        hasTag2: true,
-                                        imageDesc: valueOrDefault<String>(
-                                          getJsonField(
-                                            hijosItem,
-                                            r'''$.imagen''',
-                                          )?.toString(),
-                                          'Imagen',
-                                        ),
-                                        tag1: valueOrDefault<String>(
-                                          getJsonField(
-                                            hijosItem,
-                                            r'''$.origen''',
-                                          )?.toString(),
-                                          'Origen',
-                                        ),
-                                        tag2: random_data
-                                            .randomInteger(2, 48)
-                                            .toString(),
-                                        time: random_data.randomString(
-                                          0,
-                                          0,
-                                          true,
-                                          false,
-                                          false,
-                                        ),
-                                        title: getJsonField(
-                                          hijosItem,
-                                          r'''$.nombre''',
-                                        ).toString(),
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, -1.0),
+                                    child: RecipeCard3Widget(
+                                      key: Key(
+                                          'Key8v5_${columnIndex}_of_${columnFavoritosRowList.length}'),
+                                      calories: random_data
+                                          .randomInteger(50, 500)
+                                          .toString(),
+                                      difficulty: 'Media',
+                                      hasTag2: true,
+                                      imageDesc: columnFavoritosRow.imagen,
+                                      tag1: columnFavoritosRow.origen,
+                                      tag2: random_data
+                                          .randomInteger(2, 48)
+                                          .toString(),
+                                      time: random_data.randomString(
+                                        0,
+                                        0,
+                                        true,
+                                        false,
+                                        false,
                                       ),
-                                    ],
+                                      title: columnFavoritosRow.nombre,
+                                    ),
                                   ),
                                 ],
                               ),
-                            );
-                          },
+                            ],
+                          ),
                         );
                       },
                     );

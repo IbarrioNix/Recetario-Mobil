@@ -84,18 +84,22 @@ class _RecipeCard3WidgetState extends State<RecipeCard3Widget> {
                 Container(
                   height: 180.0,
                   child: Stack(
-                    alignment: AlignmentDirectional(-1.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     children: [
-                      CachedNetworkImage(
-                        fadeInDuration: Duration(milliseconds: 0),
-                        fadeOutDuration: Duration(milliseconds: 0),
-                        imageUrl: valueOrDefault<String>(
-                          widget.imageDesc,
-                          'https://dimg.dreamflow.cloud/v1/image/tacos%20al%20pastor%20on%20a%20plate',
+                      Align(
+                        alignment: AlignmentDirectional(0.0, -1.0),
+                        child: CachedNetworkImage(
+                          fadeInDuration: Duration(milliseconds: 0),
+                          fadeOutDuration: Duration(milliseconds: 0),
+                          imageUrl: valueOrDefault<String>(
+                            widget.imageDesc,
+                            'https://dimg.dreamflow.cloud/v1/image/tacos%20al%20pastor%20on%20a%20plate',
+                          ),
+                          width: 400.0,
+                          height: 180.0,
+                          fit: BoxFit.cover,
+                          alignment: Alignment(0.0, 0.0),
                         ),
-                        height: 180.0,
-                        fit: BoxFit.cover,
-                        alignment: Alignment(0.0, 0.0),
                       ),
                       Align(
                         alignment: AlignmentDirectional(1.0, -1.0),

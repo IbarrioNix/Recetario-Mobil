@@ -1,7 +1,6 @@
-import '/components/button3_widget.dart';
-import '/components/checkbox2_widget.dart';
-import '/components/nutrient_badge_widget.dart';
-import '/components/tab_group_widget.dart';
+import '/components/button32_widget.dart';
+import '/components/checkbox22_widget.dart';
+import '/components/nutrient_badge2_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'receta_widget.dart' show RecetaWidget;
 import 'package:flutter/material.dart';
@@ -10,41 +9,45 @@ class RecetaModel extends FlutterFlowModel<RecetaWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Model for NutrientBadge.
-  late NutrientBadgeModel nutrientBadgeModel1;
+  late NutrientBadge2Model nutrientBadgeModel1;
   // Model for NutrientBadge.
-  late NutrientBadgeModel nutrientBadgeModel2;
+  late NutrientBadge2Model nutrientBadgeModel2;
   // Model for NutrientBadge.
-  late NutrientBadgeModel nutrientBadgeModel3;
+  late NutrientBadge2Model nutrientBadgeModel3;
   // Model for NutrientBadge.
-  late NutrientBadgeModel nutrientBadgeModel4;
-  // Model for TabGroup.
-  late TabGroupModel tabGroupModel;
-  // Model for Checkbox.
-  late Checkbox2Model checkboxModel1;
-  // Model for Checkbox.
-  late Checkbox2Model checkboxModel2;
-  // Model for Checkbox.
-  late Checkbox2Model checkboxModel3;
-  // Model for Checkbox.
-  late Checkbox2Model checkboxModel4;
-  // Model for Checkbox.
-  late Checkbox2Model checkboxModel5;
+  late NutrientBadge2Model nutrientBadgeModel4;
+  // State field(s) for TabBar widget.
+  TabController? tabBarController;
+  int get tabBarCurrentIndex =>
+      tabBarController != null ? tabBarController!.index : 0;
+  int get tabBarPreviousIndex =>
+      tabBarController != null ? tabBarController!.previousIndex : 0;
+
+  // Model for Checkbox2.
+  late Checkbox22Model checkbox2Model1;
+  // Model for Checkbox2.
+  late Checkbox22Model checkbox2Model2;
+  // Model for Checkbox2.
+  late Checkbox22Model checkbox2Model3;
+  // Model for Checkbox2.
+  late Checkbox22Model checkbox2Model4;
+  // Model for Checkbox2.
+  late Checkbox22Model checkbox2Model5;
   // Model for Button3.
-  late Button3Model button3Model;
+  late Button32Model button3Model;
 
   @override
   void initState(BuildContext context) {
-    nutrientBadgeModel1 = createModel(context, () => NutrientBadgeModel());
-    nutrientBadgeModel2 = createModel(context, () => NutrientBadgeModel());
-    nutrientBadgeModel3 = createModel(context, () => NutrientBadgeModel());
-    nutrientBadgeModel4 = createModel(context, () => NutrientBadgeModel());
-    tabGroupModel = createModel(context, () => TabGroupModel());
-    checkboxModel1 = createModel(context, () => Checkbox2Model());
-    checkboxModel2 = createModel(context, () => Checkbox2Model());
-    checkboxModel3 = createModel(context, () => Checkbox2Model());
-    checkboxModel4 = createModel(context, () => Checkbox2Model());
-    checkboxModel5 = createModel(context, () => Checkbox2Model());
-    button3Model = createModel(context, () => Button3Model());
+    nutrientBadgeModel1 = createModel(context, () => NutrientBadge2Model());
+    nutrientBadgeModel2 = createModel(context, () => NutrientBadge2Model());
+    nutrientBadgeModel3 = createModel(context, () => NutrientBadge2Model());
+    nutrientBadgeModel4 = createModel(context, () => NutrientBadge2Model());
+    checkbox2Model1 = createModel(context, () => Checkbox22Model());
+    checkbox2Model2 = createModel(context, () => Checkbox22Model());
+    checkbox2Model3 = createModel(context, () => Checkbox22Model());
+    checkbox2Model4 = createModel(context, () => Checkbox22Model());
+    checkbox2Model5 = createModel(context, () => Checkbox22Model());
+    button3Model = createModel(context, () => Button32Model());
   }
 
   @override
@@ -53,12 +56,12 @@ class RecetaModel extends FlutterFlowModel<RecetaWidget> {
     nutrientBadgeModel2.dispose();
     nutrientBadgeModel3.dispose();
     nutrientBadgeModel4.dispose();
-    tabGroupModel.dispose();
-    checkboxModel1.dispose();
-    checkboxModel2.dispose();
-    checkboxModel3.dispose();
-    checkboxModel4.dispose();
-    checkboxModel5.dispose();
+    tabBarController?.dispose();
+    checkbox2Model1.dispose();
+    checkbox2Model2.dispose();
+    checkbox2Model3.dispose();
+    checkbox2Model4.dispose();
+    checkbox2Model5.dispose();
     button3Model.dispose();
   }
 }

@@ -65,6 +65,7 @@ abstract class FlutterFlowTheme {
   late Color accent20;
   late Color primary10;
   late Color secondary20;
+  late Color background0;
 
   FFDesignTokens get designToken => FFDesignTokens(this);
 
@@ -180,6 +181,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color accent20 = const Color(0x33EE8B60);
   late Color primary10 = const Color(0x1A4B39EF);
   late Color secondary20 = const Color(0x3339D2C0);
+  late Color background0 = const Color(0x00F1F4F8);
 }
 
 abstract class Typography {
@@ -386,6 +388,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color accent20 = const Color(0x33EE8B60);
   late Color primary10 = const Color(0x1A4B39EF);
   late Color secondary20 = const Color(0x3339D2C0);
+  late Color background0 = const Color(0x001D2428);
 }
 
 class FFDesignTokens {
@@ -428,6 +431,16 @@ class FFShadows {
       color: const Color(0x1A000000),
       offset: const Offset(0.0, 4.0),
       spreadRadius: 0.0);
+  BoxShadow get md => const BoxShadow(
+      blurRadius: 4.0,
+      color: const Color(0x1A000000),
+      offset: const Offset(0.0, 2.0),
+      spreadRadius: 0.0);
+  BoxShadow get xs => const BoxShadow(
+      blurRadius: 1.0,
+      color: const Color(0x1A000000),
+      offset: const Offset(0.0, 1.0),
+      spreadRadius: 0.0);
   BoxShadow get xl => const BoxShadow(
       blurRadius: 16.0,
       color: const Color(0x1A000000),
@@ -437,16 +450,6 @@ class FFShadows {
       blurRadius: 2.0,
       color: const Color(0x1A000000),
       offset: const Offset(0.0, 1.0),
-      spreadRadius: 0.0);
-  BoxShadow get xs => const BoxShadow(
-      blurRadius: 1.0,
-      color: const Color(0x1A000000),
-      offset: const Offset(0.0, 1.0),
-      spreadRadius: 0.0);
-  BoxShadow get md => const BoxShadow(
-      blurRadius: 4.0,
-      color: const Color(0x1A000000),
-      offset: const Offset(0.0, 2.0),
       spreadRadius: 0.0);
 }
 

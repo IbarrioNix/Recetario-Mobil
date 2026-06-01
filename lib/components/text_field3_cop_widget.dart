@@ -2,11 +2,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'text_field3_model.dart';
-export 'text_field3_model.dart';
+import 'text_field3_cop_model.dart';
+export 'text_field3_cop_model.dart';
 
-class TextField3Widget extends StatefulWidget {
-  const TextField3Widget({
+class TextField3CopWidget extends StatefulWidget {
+  const TextField3CopWidget({
     super.key,
     String? label,
     bool? labelPresent,
@@ -51,11 +51,11 @@ class TextField3Widget extends StatefulWidget {
   final bool error;
 
   @override
-  State<TextField3Widget> createState() => _TextField3WidgetState();
+  State<TextField3CopWidget> createState() => _TextField3CopWidgetState();
 }
 
-class _TextField3WidgetState extends State<TextField3Widget> {
-  late TextField3Model _model;
+class _TextField3CopWidgetState extends State<TextField3CopWidget> {
+  late TextField3CopModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -66,7 +66,7 @@ class _TextField3WidgetState extends State<TextField3Widget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TextField3Model());
+    _model = createModel(context, () => TextField3CopModel());
 
     _model.inputTextController ??= TextEditingController(
         text: valueOrDefault<String>(

@@ -576,7 +576,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     _model.passwordTextController.text,
                               });
 
-                              context.goNamedAuth(
+                              context.pushNamedAuth(
                                   HomePageWidget.routeName, context.mounted);
                             },
                             text: 'Crear Cuenta',
